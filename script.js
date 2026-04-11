@@ -17,4 +17,19 @@ function start() {
     clearInterval(game);
     game = setInterval(draw, 100);
 }
+function randomFood() {
+    return {
+        x: Math.floor(Math.random() * 20) * box,
+        y: Math.floor(Math.random() * 20) * box
+    };
+}
+
+document.addEventListener("keydown", changeDirection);
+
+function changeDirection(event) {
+    if (event.key === "ArrowUp" && direction !== "DOWN") direction = "UP";
+    if (event.key === "ArrowDown" && direction !== "UP") direction = "DOWN";
+    if (event.key === "ArrowLeft" && direction !== "RIGHT") direction = "LEFT";
+    if (event.key === "ArrowRight" && direction !== "LEFT") direction = "RIGHT";
+}
 
