@@ -78,3 +78,10 @@ function draw() {
 function collision(head, array) {
     return array.some(segment => segment.x === head.x && segment.y === head.y);
 }
+function saveScore(score) {
+    let best = localStorage.getItem("bestScore") || 0;
+    if (score > best) {
+        localStorage.setItem("bestScore", score);
+        alert("Nouveau record !");
+    }
+}
