@@ -32,4 +32,46 @@ function changeDirection(event) {
     if (event.key === "ArrowLeft" && direction !== "RIGHT") direction = "LEFT";
     if (event.key === "ArrowRight" && direction !== "LEFT") direction = "RIGHT";
 }
+function draw() {
+    ctx.fillStyle = "#111";
+    ctx.fillRect(0, 0, 400, 400);
 
+    for (let i = 0; i < snake.length; i++) {
+        ctx.fillStyle = i === 0 ? "lime" : "green";
+        ctx.fillRect(snake[i].x, snake[i].y, box, box);
+    }
+
+    ctx.fillStyle = "red";
+    ctx.fillRect(food.x, food.y, box, box);
+
+    let headX = snake[0].x;
+    let headY = snake[0].y;
+
+    if (direction === "UP") headY -= box;
+    if (direction === "DOWN") headY += box;
+    if (direction === "LEFT") headX -= box;
+    if (direction === "RIGHT") headX += box;
+
+    if (headX === food.x && headY === food.y) {
+        score++;
+        food = randomFood();
+    } else {
+        snake.pop();
+    }
+
+    let newHead = {x: headX, y: headY};
+
+    if (
+        headX < 0 || headX >= 400 ||
+        headY < 0 || headY >= 400 ||
+        collision(newHead, snake)
+    ) {
+        clearInterval(game);
+        saveScore(score);
+        alert("Game Over! Score: " + score);
+    }
+
+    snake.unshift(newHead);
+
+    document.getElementById("score").innerText = "Score: " + score;
+}
