@@ -75,3 +75,6 @@ function draw() {
 
     document.getElementById("score").innerText = "Score: " + score;
 }
+function collision(head, array) {
+    return array.some(segment => segment.x === head.x && segment.y === head.y);
+}
