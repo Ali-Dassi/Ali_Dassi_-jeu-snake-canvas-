@@ -63,19 +63,9 @@ git clone https://github.com/TON_USERNAME/snake-game.git
 
 * HTML5
 * CSS3
-* JavaScript (Canvas API)
-
+* JavaScript (Canvas APi)
 ---
 
-## 📌 Améliorations possibles
+## Etudient 
 
-* Ajouter un bouton **Restart**
-* Ajouter des niveaux de difficulté
-* Afficher le **Best Score** à l’écran
-* Ajouter des effets sonores 🎵
-
----
-
-## 👨‍💻 Auteur
-
-Projet réalisé par *Ali* ✨
+Projet réalisé par ALI DASSI 
